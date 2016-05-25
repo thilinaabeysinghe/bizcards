@@ -2,23 +2,35 @@
 <html>
 <head>
 	<title>Business Card Designer</title>
-	
 	<link rel="stylesheet" type="text/css" href="bootrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bootrap/css/bootstrap.theme.min.css">
 	<script type="text/javascript" src="bootrap/js/boostrap.min.js"></script>
 	<script type="text/javascript" src="angular.min.js"></script>
-
-	<style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-    </style>
+	<link rel="stylesheet" type="text/css" href="canvasstyle.css">	
 	
 </head>
 <body>
+
+	<div class="panel panel-default">
+ 		<div class="panel-heading">Tool Box</div>
+ 		<div class="panel-body">
+		<table>
+			<tr>
+				<td>
+					<input type="file" id="fileLoader" name="files" title="Load File" style="display:none;" />				
+					<button type="button" class="btn btn-default" onclick="openfileDialog();"><span class="glyphicon glyphicon-folder-open"></span></button>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</div>
+
+
 	<canvas id="canvas" width="600px" height="550px"></canvas>
 
+
+
 	<script type="text/javascript" src="canvas.js"></script>
+	<script type="text/javascript" src="toolbox.js"></script>
 </body>
 </html>

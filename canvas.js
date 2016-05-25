@@ -8,6 +8,10 @@ var radius = 25;
 context.beginPath();
 context.rect(0, 75, 100, 50);
 context.fillStyle = 'green';
+	 context.shadowColor = '#999';
+      context.shadowBlur = 20;
+      context.shadowOffsetX = 15;
+      context.shadowOffsetY = 15;
 context.fill();
 
 
