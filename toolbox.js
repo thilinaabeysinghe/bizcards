@@ -9,5 +9,21 @@ function openfileDialog() {
    		len = files.length;
 
    		console.log(files[0].name);
+
    	});	
+}
+
+function openPersonalDetails(){	
+	document.getElementById("dialogbox").style.display = 'block';
+	document.getElementById("dialogbox").focus();
+}
+
+function closePersonalDetails(){	
+	document.getElementById("dialogbox").style.display = 'none';
+}
+
+
+
+function submitDetails(){
+
 }

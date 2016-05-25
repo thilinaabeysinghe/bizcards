@@ -2,12 +2,13 @@
 <html>
 <head>
 	<title>Business Card Designer</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bootrap/css/bootstrap.theme.min.css">
 	<script type="text/javascript" src="bootrap/js/boostrap.min.js"></script>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="canvasstyle.css">	
-	
+
 </head>
 <body>
 
@@ -20,17 +21,61 @@
 					<input type="file" id="fileLoader" name="files" title="Load File" style="display:none;" />				
 					<button type="button" class="btn btn-default" onclick="openfileDialog();"><span class="glyphicon glyphicon-folder-open"></span></button>
 				</td>
+
+				<td>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="openPersonalDetails()"><span class="glyphicon glyphicon-user"></span></button>
+			
+				</td>
 			</tr>
 		</table>
 		</div>
 	</div>
 
 
+
+	<div class="panel panel-success" id="dialogbox" style="display: none; width:300px; position:fixed; top:150px; left:450px;">
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">Name :</span>
+		  <input type="text" class="form-control" placeholder="Full Name:" aria-describedby="basic-addon1">
+		</div>	
+	
+	
+	<div class="input-group">
+		  <span class="input-group-addon" id="tp">TP :</span>
+		  <input type="text" class="form-control" placeholder="Telephone :" aria-describedby="basic-addon1">
+	</div>	
+	
+	<div class="input-group">
+		  <span class="input-group-addon" id="mobile">Mobile :</span>
+		  <input type="text" class="form-control" placeholder="Mobile   :" aria-describedby="basic-addon1">
+	</div>	
+
+	<div class="input-group">
+		  <span class="input-group-addon" id="email">Email :</span>
+		  <input type="text" class="form-control" placeholder="Email    :" aria-describedby="basic-addon1">
+	</div>	
+	
+	<div class="input-group">
+		  <span class="input-group-addon" id="web">Website :</span>
+		  <input type="text" class="form-control" placeholder="Website  :" aria-describedby="basic-addon1">
+	</div>	
+	
+
+	
+	<div class="input-group">
+		  <label for="address">Address :</label>
+		  <textarea class="form-control" rows="5" id="address"></textarea>
+	</div>
+
+	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="openPersonalDetails()"><span class="glyphicon glyphicon-ok"></span></button>
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" onclick="closePersonalDetails()"><span class="glyphicon glyphicon-remove"></span></button>
+	</div>
+
+
 	<canvas id="canvas" width="600px" height="550px"></canvas>
-
-
 
 	<script type="text/javascript" src="canvas.js"></script>
 	<script type="text/javascript" src="toolbox.js"></script>
+
 </body>
 </html>
