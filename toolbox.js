@@ -8,6 +8,7 @@ function openfileDialog() {
    		files = control.files,
    		len = files.length;
 
+   		document.getElementById("tmpimage").value = files[0].name;
    		console.log(files[0].name);
 
    	});	
@@ -22,8 +23,16 @@ function closePersonalDetails(){
 	document.getElementById("dialogbox").style.display = 'none';
 }
 
+function openBusinessCards(){
+
+}
+
+
+
 
 
 function submitDetails(){
 
 }
+
+

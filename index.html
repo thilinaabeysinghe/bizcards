@@ -8,6 +8,46 @@
 	<script type="text/javascript" src="bootrap/js/boostrap.min.js"></script>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="canvasstyle.css">	
+	<script type="text/javascript" src="snap/dist/snap.svg-min.js"></script>
+
+	<style type="text/css">
+		ul li img{
+			width: 200px;
+
+		}	
+		ul li{
+			list-style: none;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('drawings'),
+		context = canvas.getContext('2d');
+
+		function allowDrop(ev) {
+    		ev.preventDefault();
+		}
+
+		function drag(ev) {
+		    ev.dataTransfer.setData("image", ev.target.src);
+
+		}
+
+		function drop(ev) {
+		    ev.preventDefault();
+		    var data = ev.dataTransfer.getData("image");
+		    //ev.target.appendChild(document.getElementById(data));
+		    var canvas = document.getElementById('drawings'),
+			context = canvas.getContext('2d');
+			base_image = new Image();
+  			base_image.src = data;
+		    base_image.onload = function(){		    	
+   				context.drawImage(base_image, 100, 100);
+   			 	console.log(data);
+  			}
+		}
+	</script>
 
 </head>
 <body>
@@ -26,11 +66,16 @@
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="openPersonalDetails()"><span class="glyphicon glyphicon-user"></span></button>
 			
 				</td>
+				<td>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="openBusinessCards()"><span class="glyphicon glyphicon-picture"></span></button>
+			
+				</td>
 			</tr>
 		</table>
 		</div>
 	</div>
 
+	<canvas id="drawings" ondrop="drop(event)" ondragover="allowDrop(event)" width="800px" height="600px"></canvas>
 
 
 	<div class="panel panel-success" id="dialogbox" style="display: none; width:300px; position:fixed; top:150px; left:450px;">
@@ -71,11 +116,25 @@
 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" onclick="closePersonalDetails()"><span class="glyphicon glyphicon-remove"></span></button>
 	</div>
 
+	<input type="text" name="tmpimage" style="display:none" id="tmpimage" value="">
+	
+	<div class="panel panel-default" id="cardssample" style="position:relative; left:950px;">
+ 		<div class="panel-heading">Sample Cards</div>
+ 		<div class="panel-body">
+ 			<ul>
+ 				<li><img src="cardsimg/sample1.png" draggable="true"
+ondragstart="drag(event)"></li>
+ 			</ul>	
+ 		</div>
+ 	</div>
 
-	<canvas id="canvas" width="600px" height="550px"></canvas>
 
-	<script type="text/javascript" src="canvas.js"></script>
 	<script type="text/javascript" src="toolbox.js"></script>
+
+	<svg id="svg" width="600px" height="550px">
+	<script type="text/javascript" src="canvas.js"></script>	
+
+
 
 </body>
 </html>
